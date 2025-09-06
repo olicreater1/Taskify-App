@@ -1,0 +1,29 @@
+{
+  "name": "taskify-app",
+  "version": "1.0.0",
+  "description": "",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/olicreater1/Taskify-App.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "bugs": {
+    "url": "https://github.com/olicreater1/Taskify-App/issues"
+  },
+  "homepage": "https://github.com/olicreater1/Taskify-App#readme",
+  "dependencies": {
+    "express": "^5.1.0",
+    "uuid": "^12.0.0"
+  },
+  "devDependencies": {
+    "nodemon": "^3.1.10"
+  }
+}

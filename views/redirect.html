@@ -1,0 +1,22 @@
+<!-- views/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Redirecting...</title>
+</head>
+<body>
+  <script>
+    const width = window.innerWidth;
+
+    if (width <= 768) {
+      // Mobile (including most iPads in portrait)
+      window.location.href = "/mobile";
+    } else {
+      // Desktop
+      window.location.href = "/desktop";
+    }
+  </script>
+</body>
+</html>

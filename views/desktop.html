@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles.css">
+    <title>Taskify</title>
+</head>
+<body>
+    <div class="container">
+    <div class="left-div">
+    <h1>Post</h1>
+    <form id="task-make-form">
+        <label for="task-urgency">Task Urgency: </label>
+        <select id="task-urgency" name="task-urgency">
+            <option value="Now">Now</option>
+            <option value="Soon">Soon</option>
+            <option value="Today">Today</option>
+            <option value="This Week">This Week</option>
+        </select>
+        <br><br>
+
+        <label for="task-body">Message: </label>
+        <input type="text" id="task-body" name="task-body" required>
+        <br><br>
+
+        <label for="to">To: </label>
+        <select id="to" name="to">
+            <option value="mom">Mom</option>
+            <option value="gar">Gar</option>
+            <option value="vi">Vi</option>
+        </select>
+        <br><br>
+
+        <label for="from">From: </label>
+        <select id="from" name="from">
+            <option value="mom">Mom</option>
+            <option value="gar">Gar</option>
+            <option value="vi">Vi</option>
+        </select>
+        <br><br>
+
+        <button type="submit">Send</button>
+        <h1 id="task-result"></h1>
+    </form>
+    <div id="trash" class="drop-zone trash-zone">
+        <h1 style="font-size: 8vh;">🗑️ Trash</h1><br>
+    </div>
+
+    </div>
+
+    <div class="right-div">
+        <div id="to-do" class="drop-zone">
+            <h1>To-Do</h1><br>
+        </div>
+        <div id="in-progress" class="drop-zone">
+            <h1>In-Progress</h1><br>
+        </div>
+        <div id="done" class="drop-zone">
+            <h1>Complete</h1><br>
+        </div>
+    </div>
+    </div>
+</body>
+<script src="task_list_request.js"></script>
+<script src="send_task.js"></script>
+</html>
