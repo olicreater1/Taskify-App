@@ -1,11 +1,13 @@
 function fetchTasks() {
+  const IP = '192.168.1.203';
+  const PORT = '5000';
   // Clear all drop zones
   ['to-do', 'in-progress', 'done'].forEach(zoneId => {
     const zone = document.getElementById(zoneId);
     if (zone) zone.innerHTML = '';
   });
 
-  fetch('http://localhost:5000/tasks')
+  fetch(`http://${IP}:${PORT}/tasks`)
     .then(res => res.json())
     .then(tasks => {
       tasks.forEach((task, index) => {
@@ -50,6 +52,10 @@ function fetchTasks() {
 }
 
 document.querySelectorAll('.drop-zone').forEach(zone => {
+  
+  const IP = '192.168.1.203';
+  const PORT = '5000';
+
   zone.addEventListener('dragover', (e) => {
     e.preventDefault(); // Required to allow dropping
     zone.classList.add('drag-over'); // Optional visual feedback
@@ -74,7 +80,7 @@ document.querySelectorAll('.drop-zone').forEach(zone => {
     if (zone.id === 'trash') {
     // Send delete request
     try {
-      const response = await fetch('http://localhost:5000/delete-task', {
+      const response = await fetch(`http://${IP}:${PORT}/delete-task`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ id: taskId.replace('task-', '') })
@@ -97,7 +103,7 @@ document.querySelectorAll('.drop-zone').forEach(zone => {
 
     // Send updated location to server
     try {
-      const response = await fetch('http://localhost:5000/update-location', {
+      const response = await fetch(`http://${IP}:${PORT}/update-location`, {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({

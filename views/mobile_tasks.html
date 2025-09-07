@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/styles_mobile.css">
+    <title>Taskify</title>
+</head>
+<body>
+    <ul>
+        <li><a href="mobile">Home</a></li>
+        <li><a href="mobile_tasks" class="active">Tasks</a></li>
+    </ul>
+
+    <div class="container">
+    <div class="left-div">
+    <div id="trash" class="drop-zone trash-zone">
+        <h1 style="font-size: 6vh;">🗑️ Trash</h1><br>
+    </div>
+
+    </div>
+
+    <div class="right-div">
+        <div id="to-do" class="drop-zone">
+            <h1>To-Do</h1><br>
+        </div>
+        <div id="in-progress" class="drop-zone">
+            <h1>In-Progress</h1><br>
+        </div>
+        <div id="done" class="drop-zone">
+            <h1>Complete</h1><br>
+        </div>
+    </div>
+    </div>
+</body>
+<script src="task_list_request.js"></script>
+</html>

@@ -3,12 +3,22 @@
     margin: 0;
     padding: 0;
     font-family: 'Nunito', sans;
-    background-color: #6f6fb8;
+    background-color: #248aff;
+  }
+  .center {
+    text-align: center;
+    align-items: center;
+    margin: auto;
+    margin-top: auto;
+    width: 90%;
+    border-radius: 24px;
+    background-color: #2a84d9;
+    height: 90vh;
   }
   .container {
     display: flex;
-    width: 100%;
     min-height: 100vh;
+    min-width: 400vw;
   }
   .left-div {
     position: sticky;
@@ -28,7 +38,7 @@
   }
   .right-div {
     flex: 0 0 80%;
-    min-height: 100vh;
+    min-height: 300vh;
     background: #5e6063;
     color: #acbfd1;
     border-top-left-radius: 32px;
@@ -63,17 +73,19 @@
   }
   .trash-zone {
     width:90%;
-    max-height: 20vh;
+    min-height: 90%;
     background-color: #ffdddd;
     border: 2px dashed rgb(216, 35, 35);
     color: darkred;
+    margin: auto;
   }
   .trash-zone.drag-over {
-    width:90%;
-    max-height: 20vh;
+    width: 89%;
+    min-height: 89%;
     background-color: #a89393;
     border: 2px dashed rgb(141, 8, 8);
     color: rgb(161, 26, 26);
+    margin: auto;
   }
   .post-it {
     width: 90%;
@@ -139,3 +151,32 @@
   .response.visible {
     opacity: 1;
   }
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #478ad1;
+  max-width: 400vw;
+  min-width: 100vw;
+  width: fill-available;
+}
+ul li {
+  float: left;
+}
+
+ul li a {
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+}
+
+ul li a:hover {
+  background-color: #1c476f;
+}
+
+ul li a.active {
+  background-color: #0063cd;
+}

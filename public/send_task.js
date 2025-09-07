@@ -11,8 +11,8 @@ function formatTask(urgency, body, to, from) {
     return packet;
 }
 // Uses fetch to post the formed packet to the server.
-async function postPacket(packet) {
-    const response = await fetch('http://localhost:5000/json', {
+async function postPacket(packet, IP = '192.168.1.203', PORT = '5000') { // IP AND PORT SET LOCATION!
+    const response = await fetch(`http://${IP}:${PORT}/json`, {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json; charset=utf-8'
