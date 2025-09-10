@@ -61,6 +61,18 @@
     box-shadow: -2px 0 12px rgba(0,0,0,0.06);
     text-align: center;
   }
+  .text-display {
+    width: 30%;
+    padding-left: 1.6666667%;
+    padding-right: 1.6666667%;
+    float: left;
+    min-height: 90vh;
+    background: #43536b;
+    color: #9cb7d1;
+    border-radius: 24px;
+    box-shadow: -2px 0 12px rgba(0,0,0,0.06);
+    text-align: center;
+  }
   .trash-zone {
     width:90%;
     max-height: 20vh;

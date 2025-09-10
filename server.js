@@ -2,12 +2,11 @@ const express = require('express');
 const http = require('http');
 const fs = require('fs');
 const path = require('path');
-const { v4: uuidv4 } = require('uuid');
 
 const app = express();
 const locations = ['to-do', 'in-progress', 'done'];
 
-const IP = "192.168.1.203"; 
+const IP = "192.168.1.11";
 const PORT = "5000";
 
 // Serve static files
@@ -50,7 +49,7 @@ app.post('/delete-task', (req, res) => {
     }
   }
 
-  res.setHeader('Access-Control-Allow-Origin', 'http://'+ IP +':8080');
+  res.setHeader('Access-Control-Allow-Origin', `http://${IP}:8080`);
   if (deleted) {
     res.json({ status: 'deleted' });
   } else {
@@ -59,8 +58,11 @@ app.post('/delete-task', (req, res) => {
 });
 
 // POST /json → Save new task
-app.post('/json', (req, res) => {
+app.post('/json', async (req, res) => {
   try {
+    const uuidModule = await import('uuid'); 
+    const uuidv4 = uuidModule.v4;
+
     const task = req.body;
     const id = uuidv4();
     task.id = id;
@@ -72,11 +74,11 @@ app.post('/json', (req, res) => {
     const filepath = path.join(dir, filename);
     fs.writeFileSync(filepath, JSON.stringify(task, null, 2));
 
-    res.setHeader('Access-Control-Allow-Origin', 'http://' + IP + ':8080');
+    res.setHeader('Access-Control-Allow-Origin', `http://${IP}:8080`);
     res.json({ status: 'success', id });
     console.log("✅ Task saved:", filename);
   } catch (err) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://' + IP + ':8080');
+    res.setHeader('Access-Control-Allow-Origin', `http://${IP}:8080`);
     res.status(400).json({ error: 'Invalid JSON' });
   }
 });
@@ -102,7 +104,7 @@ app.get('/tasks', (req, res) => {
     });
   }
 
-  res.setHeader('Access-Control-Allow-Origin', 'http://' + IP + ':8080');
+  res.setHeader('Access-Control-Allow-Origin', `http://${IP}:8080`);
   res.json(tasks);
   console.log(`📦 Sent ${tasks.length} tasks`);
 });
@@ -130,7 +132,7 @@ app.post('/update-location', (req, res) => {
       fs.writeFileSync(newPath, JSON.stringify(task, null, 2));
       fs.unlinkSync(oldPath);
 
-      res.setHeader('Access-Control-Allow-Origin', 'http://' + IP + ':8080');
+      res.setHeader('Access-Control-Allow-Origin', `http://${IP}:8080`);
       res.json({ status: 'updated' });
       console.log(`🔄 Moved task ${id} to ${location}`);
       found = true;
@@ -139,7 +141,7 @@ app.post('/update-location', (req, res) => {
   }
 
   if (!found) {
-    res.setHeader('Access-Control-Allow-Origin', 'http://' + IP + ':8080');
+    res.setHeader('Access-Control-Allow-Origin', `http://${IP}:8080`);
     res.status(404).json({ error: 'Task not found' });
   }
 });

@@ -1,10 +1,16 @@
 function fetchTasks() {
-  const IP = '192.168.1.203';
+  const IP = '192.168.1.11';
   const PORT = '5000';
-  // Clear all drop zones
+  // Clear all drop zones while excluding the deletion of <h1> elements
   ['to-do', 'in-progress', 'done'].forEach(zoneId => {
     const zone = document.getElementById(zoneId);
-    if (zone) zone.innerHTML = '';
+    if (zone) {
+      Array.from(zone.children).forEach(child => {
+        if (!child.tagName || child.tagName.toLowerCase() !== 'h1') {
+          zone.removeChild(child);
+        }
+      });
+    }
   });
 
   fetch(`http://${IP}:${PORT}/tasks`)
@@ -53,7 +59,7 @@ function fetchTasks() {
 
 document.querySelectorAll('.drop-zone').forEach(zone => {
   
-  const IP = '192.168.1.203';
+  const IP = '192.168.1.11';
   const PORT = '5000';
 
   zone.addEventListener('dragover', (e) => {
